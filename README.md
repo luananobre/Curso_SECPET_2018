@@ -6,7 +6,7 @@ Geofísica aplicada à sísmica de exploração
 #### **Carlos Henrique e Luana Nobre**
 
 Pré-Requisitos
-======
+------
 
 1.  Ambiente Linux e compilador para c
 
