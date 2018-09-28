@@ -1,18 +1,19 @@
- # Geofísica aplicada à sísmica de exploração
- ================================================
- ### **IV Semana Científica do PET-Física - UFRRJ**
+# Geofísica aplicada à sísmica de exploração
+
+### **IV Semana Científica do PET-Física - UFRRJ**
 
 ### **Carlos Henrique e Luana Nobre**
 
-## Pré-Requisitos
-================================================
+# Pré-Requisitos
 
+***
 1.  Ambiente Linux e compilador para c
 
 2. Software Seismic Unix
 
 ## Instruções para instalação do Software Seismic Unix
-================================================
+
+***
 
 1. Faça o download utilizando o link <https://github.com/JohnWStockwellJr/SeisUnix>
 
