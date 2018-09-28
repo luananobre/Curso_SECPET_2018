@@ -14,9 +14,7 @@ Pré-Requisitos
 Instruções para instalação do Software Seismic Unix
 ================================================
 
-1 - Faça o download utilizando o link
-
-	<https://github.com/JohnWStockwellJr/SeisUnix>
+1 - Faça o download utilizando o link <https://github.com/JohnWStockwellJr/SeisUnix>
 
 2 - entre no arquivo .bashrc para definir o diretorio de instalação. 
 	Acrescente as linhas a seguir:
