@@ -16,7 +16,7 @@ Instruções para instalação do Software Seismic Unix
 
 1. Faça o download utilizando o link <https://github.com/JohnWStockwellJr/SeisUnix>
 
-2. entre no arquivo .bashrc para definir o diretorio de instalação. 
+2. Entre no arquivo `.bashrc` para definir o diretorio de instalação. 
 	Acrescente as linhas a seguir:
 
 	export CWPROOT=$HOME/SeisUnix
@@ -37,7 +37,7 @@ Instruções para instalação do Software Seismic Unix
 
     unzip SeisUnix-master.zip
 	
-7. entre na pasta SeisUnix-master/src e comente a linha no arquivo Makefile.config
+7. entre na pasta SeisUnix-master/src e comente a linha no arquivo `Makefile.config`
 
 	  "XDRFLAG = -DSUXDR" 
 	
