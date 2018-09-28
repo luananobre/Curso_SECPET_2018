@@ -1,10 +1,10 @@
 # Geofísica aplicada à sísmica de exploração
 
-### **IV Semana Científica do PET-Física - UFRRJ**
+#### **IV Semana Científica do PET-Física - UFRRJ**
 
-### **Carlos Henrique e Luana Nobre**
+#### **Carlos Henrique e Luana Nobre**
 
-# Pré-Requisitos
+## Pré-Requisitos
 
 ***
 1.  Ambiente Linux e compilador para c
