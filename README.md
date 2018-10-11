@@ -12,7 +12,7 @@ Pré-Requisitos
 
 2. Software Seismic Unix
 
-# Ementa
+# Programação
 
  **1º Dia: Introdução ao método sísmico**
  ------
