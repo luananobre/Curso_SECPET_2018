@@ -1,4 +1,4 @@
-Instruções para instalação do Software Seismic Unix
+Instruções para instalação do Software Seismic Unix 
 ======
 1. Faça o download utilizando o link <https://github.com/JohnWStockwellJr/SeisUnix>
 
