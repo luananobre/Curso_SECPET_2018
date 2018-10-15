@@ -29,7 +29,7 @@ void modeling_data(int time_step, float *P0, float *P1, float *fonte, float *vel
     update_wave_field (P0, P1, Nxx, Nzz);
     
 
-     if (time_step%500==0){
+     if (time_step%100==0){
          fwrite (&P0[0], sizeof(float), Nxx*Nzz, snapFile_inc);
      }
      
