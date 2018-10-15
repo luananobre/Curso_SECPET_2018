@@ -1,0 +1,12 @@
+void ricker_wavelet(float *fonte, int Nf);
+void readFile(char fileName[50], float* var, int Nx, int Nz);
+void writeToFile(char fileName[50], float* var, int Nx, int Nz);
+void wave_equation(float *P0, float *P1, int Nxx, int Nzz, float *vel, float *amp);
+void update_wave_field(float *P0, float *P1, int Nxx, int Nzz);
+void apply_Reynolds_Boundary(float *P0, float *P1, float *amp, int Nxx, int Nzz);
+void apply_Cerjan_Boundary(float *P0, float *P1, const int Nxx, const int Nzz, float *coef_dampz_left, float *coef_dampz_right, float *coef_dampz_inf, float *coef_dampz_sup);
+void ad_borda_model_vel(float *vel_ini, float *vel, int Nxx, int Nzz);
+void refl_model(float *refl_ini, float *refl, int Nxx, int Nzz);
+void calc_coef_damping_zones(int Nxx, int Nzz, float *coef_dampz_left, float *coef_dampz_right, float *coef_dampz_inf, float *coef_dampz_sup);
+void modeling_data(int time_step, float *P0, float *P1, float *fonte, float *vel_mod, float *coefic, float *amp, float *coef_dampz_left, float *coef_dampz_right, float *coef_dampz_inf, float *coef_dampz_sup, int xshot, int zshot, int Nf, int Nxx, int Nzz, FILE * snapFile_inc);
+void geometria(int xshot, int *coord_rec, int irec, int ishot);

@@ -1,0 +1,92 @@
+//
+//  vel_model.c
+//  
+//
+//  Created by Luana Nobre on 05/05/14.
+//
+//
+
+#include <stdio.h>
+#include <string.h>
+#include "parametros.h"
+#include <math.h>
+
+void vel_model(float *vel_ini, float *vel, int Nxx, int Nzz) {
+    
+    int ix, iz, countz, countx;
+    
+	for (countz=NA; countz<(NZ+NA); countz++) {
+        for (countx=NA; countx<(NX+NA); countx++) {
+            vel[Nzz*countx + countz] = vel_ini[NZ*(countx-NA) + (countz-NA)];
+        }
+    }
+    
+    float temp_a;
+    temp_a = 500./NA; // coeficiente angular do gradiente da velocidade nas bordas
+ 
+    // Borda superior
+    for (ix = NA; ix < (NX+NA); ix++) {
+        for (iz = 0; iz < NA; iz++) {
+            if (vel[Nzz*ix + (NA+1)] == 1500)  vel[Nzz*ix + iz] = vel[Nzz*ix + (NA+1)];
+            else  vel[Nzz*ix + iz] = temp_a*iz + vel[Nzz*ix + (NA+1)] - 500;
+        }
+    }
+    
+    // Borda inferior
+    for (ix = NA; ix < (NX+NA); ix++) {
+        for (iz = (NZ+NA); iz < Nzz; iz++) {
+            if (vel[Nzz*ix + NA+NZ-1] == 1500)  vel[Nzz*ix + iz] = vel[Nzz*ix + NA+NZ-1];
+            else  vel[Nzz*ix + iz] = -temp_a*iz + vel[Nzz*ix + NA+NZ-1] - 500 + temp_a*Nzz;
+        }
+    }
+    
+    // Borda lateral esquerda
+    for (ix = 0; ix < NA; ix++) {
+        for (iz = NA; iz < (NZ+NA); iz++) {
+            if (vel[Nzz*(NA+1) + iz] == 1500) vel[Nzz*ix + iz] = vel[Nzz*(NA+1) + iz];
+            else vel[Nzz*ix + iz] = temp_a*ix + vel[Nzz*(NA+1) + iz] - 500;
+        }
+    }
+    
+   // Borda lateral direita
+    for (ix = (NA+NX); ix < Nxx; ix++) {
+        for (iz = (NA); iz < (NZ+NA); iz++) {
+            if (vel[Nzz*(NX+NA-1) + iz] == 1500) vel[Nzz*ix + iz] = vel[Nzz*(NX+NA-1) + iz];
+            else vel[Nzz*ix + iz] = -temp_a*ix + vel[Nzz*(NX+NA-1) + iz] + temp_a*(NX+NA);
+        }
+    }
+    
+    // Borda quina superior esquerda
+    for (ix = 0; ix < NA; ix++) {
+        for (iz = 0; iz < NA; iz++) {
+            if (vel[Nzz*(NA+1) + (NA+1)] == 1500) vel[Nzz*ix + iz] = vel[Nzz*(NA+1) + (NA+1)];
+            else vel[Nzz*ix + iz] = -sqrt(pow((ix-NA),2) + pow((iz-NA),2))*temp_a + vel[Nzz*(NA+1) + (NA+1)];
+        }
+    }
+    
+    // Borda quina superior direita
+    for (ix = (NA+NX); ix < Nxx; ix++) {
+        for (iz = 0; iz < NA; iz++) {
+            if (vel[Nzz*(NX+NA-1) + NA] == 1500) vel[Nzz*ix + iz] = vel[Nzz*(NX+NA-1) + NA];
+            else  vel[Nzz*ix + iz] =  -sqrt(pow((ix-(NX+NA)),2) + pow((iz-NA),2))*temp_a + vel[Nzz*(NX+NA-1) + NA];
+        }
+    }
+    
+    // Borda quina inferior esquerda
+    for (ix = 0; ix < NA; ix++) {
+        for (iz = (NZ+NA); iz < Nzz; iz++) {
+            if (vel[Nzz*(NA+1) + (NZ+NA-1)] == 1500) vel[Nzz*ix + iz] = vel[Nzz*(NA+1) + (NZ+NA-1)];
+            else vel[Nzz*ix + iz] =  -sqrt(pow((ix-NA),2) + pow((iz-NZ-NA),2))*temp_a + vel[Nzz*(NA+1) + (NZ+NA-1)];
+        }
+    }
+    
+    // Borda quina inferior direita
+    for (ix = (NX+NA); ix < Nxx; ix++) {
+        for (iz = (NZ+NA); iz < Nzz; iz++) {
+            if (vel[Nzz*(NX+NA) + (NZ+NA-1)] == 1500) vel[Nzz*ix + iz] = vel[Nzz*(NX+NA) + (NZ+NA-1)];
+            else vel[Nzz*ix + iz] =  -sqrt(pow((ix-(NX+NA)),2) + pow((iz-(NZ+NA)),2))*temp_a + vel[Nzz*(NX+NA) + (NZ+NA-1)];
+        }
+    }
+   
+    
+}

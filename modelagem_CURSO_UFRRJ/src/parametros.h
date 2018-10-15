@@ -1,0 +1,21 @@
+extern char fileNameVel[100];
+extern char fileNameFonte[100];
+extern int NX;
+extern int NZ;
+extern int NTOTAL;
+extern int NA;
+extern int BORDA_CONTORNO_AMORT;
+extern float FCORTE;
+extern float DT;
+extern int H;
+extern int Z0_REC;
+extern int Z0_SHOT;
+extern int X0_SHOT;
+extern int DX_SHOT;
+extern int NSHOT;
+extern int X0_REC;
+extern int DX_REC;
+extern int NREC;
+extern int OFFSET_MIN;
+extern int GEOMETRY;
+

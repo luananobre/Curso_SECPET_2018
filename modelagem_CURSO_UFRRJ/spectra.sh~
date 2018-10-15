@@ -1,0 +1,9 @@
+suaddhead ns=5000 < output/dados_real.bin | sushw key=dt a=300 > output/dados_real.su
+
+suspecfk  < output/dados_real.su | suximage grid1=solid grid2=solid gridcolor=black legend=1 x1beg=0 x1end=60 cmap=hsv2 bclip=0.03 wclip=0.008 &
+
+#suplane | suspecfk | suximage grid1=solid grid2=solid gridcolor=black cmap=hsv2 < output/sismos/dados_real.bin
+
+#suximage grid1=solid grid2=solid gridcolor=black cmap=hsv2 < output/sismos/dados_real.su | sustack key=dt | suspecfk
+
+#sufft < output/sismos/dados_real.su | suamp mode=amp | sustack key=dt | suxgraph style=normal label1="f(Hz)" title="Espectro de Frequ^encia"

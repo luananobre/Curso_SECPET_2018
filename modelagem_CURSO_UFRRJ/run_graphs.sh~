@@ -1,0 +1,34 @@
+#ximage n1=5000 <  output/dados_real.bin cmap=rgb1 title='dado sem fantasma' wbox=1000 hbox=700 legend=1 &
+#sfstack axis=2 < dados_real.rsf |  sfspectra | sfscale axis=1 |sfwindow max1=60 | sfgraph label2='Amplitude' unit2='' title='sem Fantasma'| sfpen &
+#sfspectra2 < dados_real.rsf   | sfwindow max1=60  min2=-0.02 max2=0.02 | sfimage wbox=800 hbox=700 legend=1  cmap=hsv2 title='sem Fantasma' &
+
+
+ximage n1=8000 <  output/dados_real.bin perc=99 cmap=rgb1 title='dado sem fantasma' wbox=700 hbox=600 legend=1 &
+#ximage n1=8000 <  output/dados_wghostREC.bin bclip=0.0001 wclip=-0.0001 cmap=rgb1 title='dado com fantasma do receptor' wbox=700 hbox=600 legend=1 &
+#ximage n1=8000 <  output/dados_wghostSRC.bin bclip=0.0001 wclip=-0.0001 cmap=rgb1 title='dado com fantasma do fonte' wbox=700 hbox=600 legend=1&
+#ximage n1=8000 <  output/dados_wghostSRCeREC.bin bclip=0.0001 wclip=-0.0001 cmap=rgb1 title='dado com fantasma da fonte e do receptor' wbox=700 hbox=600 legend=1 &
+
+
+
+#SALVANDO OS ESPECTROS
+#sfwindow n3=1 < output/dados_real.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30 | sfgraph | sfpen
+#sfwindow n3=1 < output/dados_real.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30  > spectra_data_real.rsf datapath=${PWD}/
+
+#sfwindow n3=1 < output/dados_wghostREC.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30 | sfgraph | sfpen
+#sfwindow n3=1 < output/dados_wghostREC.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30  > spectra_wghostREC.rsf datapath=${PWD}/
+
+#sfwindow n3=1 < output/dados_wghostSRC.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30 | sfgraph | sfpen
+#sfwindow n3=1 < output/dados_wghostSRC.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30  > spectra_wghostSRC.rsf datapath=${PWD}/
+
+#sfwindow n3=1 < output/dados_wghostSRCeREC.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30 | sfgraph | sfpen
+#sfwindow n3=1 < output/dados_wghostSRCeREC.rsf |  sfspectra | sfstack axis=2 | sfwindow max1=30  > spectra_wghostSRCeREC.rsf datapath=${PWD}/
+
+
+#espectro de frequencia em 2D
+sfspectra2 < output/dados_real.rsf | sfwindow max1=15 | sfimage perc=99 wbox=800 hbox=700 legend=1 cmap=hsv2 title='sem Fantasma'  title='Espectro de freqencia em 2D - sem fantasma'&
+
+#sfspectra2 < output/dados_wghostREC.rsf | sfwindow max1=60   | sfimage wbox=800 hbox=700 legend=1 cmap=hsv2 title='sem Fantasma' bclip=0.002 wclip=0 x2beg=-0.08 x2end=0.08 title='Espectro de freqencia em 2D - com fantasma no Rec'&
+
+#sfspectra2 < output/dados_wghostSRC.rsf | sfwindow max1=60   | sfimage wbox=800 hbox=700 legend=1 cmap=hsv2 title='sem Fantasma' bclip=0.002 wclip=0 x2beg=-0.08 x2end=0.08 title='Espectro de freqencia em 2D - com fantasma na Fonte'&
+
+#sfspectra2 < output/dados_wghostSRCeREC.rsf | sfwindow max1=60   | sfimage wbox=800 hbox=700 legend=1 cmap=hsv2 title='sem Fantasma' bclip=0.002 wclip=0 x2beg=-0.08 x2end=0.08 title='Espectro de freqencia em 2D - com fantasma na Fonte e no Rec'&
