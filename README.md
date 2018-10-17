@@ -1,4 +1,4 @@
-Geofísica aplicada à sísmica de exploração
+Modelagem Sísmica
 ======
 
 #### **IV Semana Científica do PET-Física - UFRRJ**
